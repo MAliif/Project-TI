@@ -2,6 +2,16 @@
 
 <x-app-layout>
     <div class="py-6 max-w-7xl mx-auto">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $errorkeren)
+                        <li>{{ $errorkeren }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <form action="{{ route('store') }}" method="post">
             @csrf
             <div class="grid grid-cols-3">

@@ -23,10 +23,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/pasien-add', [PasienController::class, 'create'])->name('add_pasien');
     Route::post('/store', [PasienController::class, 'store'])->name('store');
     Route::get('/pasien/{noreg}', [PasienController::class, 'show'])->name('pasien_detail');
-    Route::get('/pasien-edit/{id}', [PasienController::class, 'edit'])->name('pasien_edit');
+    Route::get('/pasien-edit/{noreg}', [PasienController::class, 'edit'])->name('pasien_edit');
     Route::put('/update/{id}', [PasienController::class, 'update'])->name('update');
     // Route::get('/pasien-delete/{id}', [PasienController::class, 'delete'])->name('pasien_delete');
-    Route::delete('/destroy/{id}', [PasienController::class, 'destroy'])->name('destroy');
+    Route::delete('/destroy/{noreg}', [PasienController::class, 'destroy'])->name('destroy');
     // Route::get('/studelere', [PasienController::class, 'history']);
     // Route::get('/stulon/{id}/restore', [PasienController::class, 'restore']);
 });
