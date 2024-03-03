@@ -13,12 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('books', function (Blueprint $table) {
+        Schema::create('tanda_vitals', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('author');
-            $table->string('year');
-            $table->integer('copies_in_circulation');
+            $table->integer('tinggi_badan');
+            $table->integer('berat_badan');
+            $table->integer('tekanan_darah');
+            $table->integer('nadi');
+            $table->integer('pernapasan');
+            $table->integer('suhu');
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('books');
+        Schema::dropIfExists('tanda_vitals');
     }
 };

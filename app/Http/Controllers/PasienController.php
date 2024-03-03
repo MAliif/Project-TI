@@ -2,16 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\PasienCreateRequest;
 use App\Models\Pasien;
+use App\Models\TandaVital;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use Illuminate\Contracts\Session\Session;
+use App\Http\Requests\PasienCreateRequest;
 
 class PasienController extends Controller
 {
+    public function searching(Request $request)
+    {
+        $keyword = $request->Keyword;
+        // dd($keyword);
+        $pasien = Pasien::where('noreg', 'Like', '%' . $keyword . '%')->get();
+        return view('welcome', ['pasien' => $pasien, 'keyword' => $keyword]);
+    }
+
     public function index()
     {
-        $paginate = Pasien::paginate(5);
-        return view('pasien.index', ['pasien' => $paginate]);
+        $pasien = Pasien::paginate(5);
+
+        return view('pasien.index', compact('pasien'));
     }
 
     public function create()
@@ -28,8 +41,8 @@ class PasienController extends Controller
 
     public function show($request)
     {
-        // dd($request);
-        $pasien = Pasien::findOrFail($request);
+        $pasien = Pasien::with('tandaVital')->findOrFail($request);
+
         return view('pasien.detail', ['data' => $pasien]);
     }
 
@@ -39,7 +52,6 @@ class PasienController extends Controller
         return view('pasien.edit', ['data' => $pasien]);
     }
 
-    //* TUGAS YANG INI
     public function update(Request $request, $noreg)
     {
         // dd($noreg);
@@ -50,7 +62,7 @@ class PasienController extends Controller
 
     public function destroy($noreg)
     {
-        dd($noreg);
+        // dd($noreg);
         $pasien = Pasien::findOrFail($noreg);
         $pasien->delete();
 
@@ -60,6 +72,19 @@ class PasienController extends Controller
         // }
 
         // DB::table('alifs')->where('id', $id)->delete();
+        return redirect('/pasien');
+    }
+
+    public function tandaVital()
+    {
+        $pasien = Pasien::get();
+        return view('pasien.tv', ['pasien' => $pasien]);
+    }
+
+    public function tvstore(Request $request)
+    {
+        // dd($request);
+        TandaVital::create($request->all());
         return redirect('/pasien');
     }
 }

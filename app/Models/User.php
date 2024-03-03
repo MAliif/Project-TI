@@ -42,15 +42,4 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    public function activeLoans() {
-        return $this
-            ->loans()
-            ->where('is_returned', false)
-            ->get();
-    }
-
-    public function loans(): HasMany {
-        return $this->hasMany(Loan::class);
-    }
 }

@@ -44,8 +44,8 @@ class PasienCreateRequest extends FormRequest
     public function messages()
     {
         return [
-            // 'nis.required' => 'NIS Harus diisi!'
-            'nama.max' => 'Namanya Kepanjangan wkwkwkwk',
+            'nama.max' => 'Nama maksimal :max karakter',
+            'no_tlp.max' => 'Nomor telepon maksimal :max digit',
         ];
     }
 }

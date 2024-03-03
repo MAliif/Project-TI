@@ -3,13 +3,15 @@
 <x-app-layout>
     <div class="py-6 max-w-7xl mx-auto">
         @if ($errors->any())
-            <div class="alert alert-danger">
+        <div class="my-5 mb-8 px-3">
+            <div class="bg-red-300 py-4 rounded-md w-full px-5">
                 <ul>
                     @foreach ($errors->all() as $errorkeren)
                         <li>{{ $errorkeren }}</li>
                     @endforeach
                 </ul>
             </div>
+        </div>
         @endif
 
         <form action="{{ route('store') }}" method="post">
@@ -30,7 +32,7 @@
                     <div class="relative">
                         <select name="jenis_kelamin"
                             class="block w-full text-gray-800 py-3 px-4 pr-8 rounded leading-tight" id="jenis_kelamin">
-                            <option class="hidden" disabled selected value> -- pilih jenis kelamin anda -- </option>
+                            <option class="hidden" disabled selected value> -- Jenis kelamin -- </option>
                             <option value="laki-laki">Laki-laki</option>
                             <option value="perempuan">Perempuan</option>
                         </select>

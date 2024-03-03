@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\TandaVital;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+// use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Pasien extends Model
 {
@@ -13,6 +15,11 @@ class Pasien extends Model
         'nama',
         'jenis_kelamin',
         'alamat',
-        'no_tlp',
+        'no_tlp'
     ];
+
+    public function tandaVital()
+    {
+        return $this->hasOne(TandaVital::class, 'pasien_id');
+    }
 }
