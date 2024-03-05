@@ -62,6 +62,14 @@
                 </div>
             </div>
         </div>
+        <svg class="mt-[-100px] z-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#d72323" fill-opacity="1"
+            d="M0,128L144,160L288,256L432,160L576,160L720,288L864,256L1008,96L1152,64L1296,224L1440,192L1440,320L1296,320L1152,320L1008,320L864,320L720,320L576,320L432,320L288,320L144,320L0,320Z"
+            </path>
+            <text x="50%" y="85%" text-anchor="middle"
+                class="text-center text-lg font-bold bg-slate-50 !important">Created By: M Alif - Shaffarel - Alisya
+            </text>
+        </svg>
     </x-app-layout>
 @else
     <x-app-layout>
@@ -126,5 +134,13 @@
                 </div>
             </div>
         </div>
+        <svg class="mt-[-200px] z-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#d72323" fill-opacity="1"
+            d="M0,128L144,160L288,256L432,160L576,160L720,288L864,256L1008,96L1152,64L1296,224L1440,192L1440,320L1296,320L1152,320L1008,320L864,320L720,320L576,320L432,320L288,320L144,320L0,320Z"
+            </path>
+            <text x="50%" y="85%" text-anchor="middle"
+                class="text-center text-lg font-bold bg-slate-50 !important">Created By: M Alif - Shaffarel - Alisya
+            </text>
+        </svg>
     </x-app-layout>
 @endif

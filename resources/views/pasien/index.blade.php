@@ -3,6 +3,13 @@
 <x-app-layout>
     <div class="py-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            @if (Session::has('status'))
+                <div class="my-5 mb-8 px-3">
+                    <div class="bg-green-300 py-4 rounded-md w-full px-5">
+                        {{ Session::get('message') }}
+                    </div>
+                </div>
+            @endif
             <div class="my-6 mx-1 flex justify-between">
                 <h2 class="text-xl font-semibold text-gray-900 text-center">Daftar Pasien</h2>
                 <a href="{{ route('add_pasien') }}"

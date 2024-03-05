@@ -12,6 +12,7 @@ class Pasien extends Model
     use HasFactory;
     protected $primaryKey = 'noreg';
     protected $fillable = [
+        'noreg',        
         'nama',
         'jenis_kelamin',
         'alamat',

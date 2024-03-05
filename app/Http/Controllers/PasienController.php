@@ -7,7 +7,7 @@ use App\Models\TandaVital;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use Illuminate\Contracts\Session\Session;
+use Illuminate\Support\Facades\Session;
 use App\Http\Requests\PasienCreateRequest;
 
 class PasienController extends Controller
@@ -36,6 +36,7 @@ class PasienController extends Controller
     {
         // dd($request);
         Pasien::create($request->all());
+        
         return redirect('/pasien');
     }
 
@@ -84,7 +85,11 @@ class PasienController extends Controller
     public function tvstore(Request $request)
     {
         // dd($request);
-        TandaVital::create($request->all());
+        $create = TandaVital::create($request->all());
+        if ($create) {
+            Session::flash('status', 'success');
+            Session::flash('message', 'Berhasil menambahkan tanda vital pada pasien!');
+        }
         return redirect('/pasien');
     }
 }
