@@ -46,6 +46,7 @@ class PasienCreateRequest extends FormRequest
         return [
             'nama.max' => 'Nama maksimal :max karakter',
             'no_tlp.max' => 'Nomor telepon maksimal :max digit',
+            "no_tlp.unique" => 'Nomor telepon tidak boleh sama!',
             'nama.required' => 'Kolom nama pasien tidak boleh kosong!'
         ];
     }

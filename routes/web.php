@@ -24,6 +24,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/pasien-add', [PasienController::class, 'create'])->name('add_pasien');
     Route::get('/add-tv', [PasienController::class, 'tandavital'])->name('add_tv');
     Route::post('/tv-store', [PasienController::class, 'tvstore'])->name('tv_store');
+    //? Tambah Data
     Route::post('/store', [PasienController::class, 'store'])->name('store');
     Route::get('/pasien-edit/{noreg}', [PasienController::class, 'edit'])->name('pasien_edit');
     Route::put('/update/{noreg}', [PasienController::class, 'update'])->name('update');
